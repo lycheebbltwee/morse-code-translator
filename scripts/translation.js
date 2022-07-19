@@ -1,3 +1,5 @@
+import convertCharacter from "./converted-char.js";
+
 // A to Z in Morse Code
 const alphabet = {
     A: ".-",
@@ -69,30 +71,9 @@ export const translateString = (string) => {
 
     // Error catching:
     // If the string is empty or contains a number
-    if (string === null || string === undefined || string === "") {
+    if (!string) {
         return "";
     }
 
-    // Split the string, based on whether the string is in English or in Morse
-    if (/^[\.\-]/.test(string)) {
-        const morseArr = string.split(" ");
-
-        // Create a new array with the translated character
-        const translatedToEnglish = morseArr.map((char) => {
-            return keys[values.indexOf(char)].toLowerCase();
-        });
-
-        // Join translated characters
-        return translatedToEnglish.join("");
-    } else if (/^[a-z\d\W]/gi.test(string)) {
-        const englishArr = string.split("");
-
-        // Create a new array with the translated character
-        const translatedToMorse = englishArr.map((char) => {
-            return values[keys.indexOf(char.toUpperCase())];
-        });
-
-        // Join translated characters
-        return translatedToMorse.join(" ");
-    }
+    return convertCharacter(string, keys, values);
 };
