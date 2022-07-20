@@ -1,5 +1,5 @@
-import { translateString } from "./translation.js";
-import { changeText } from "./dom-display.js";
+import translateString from "./translation.js";
+import changeText from "./dom-display.js";
 
 // DOM Variables
 const textInput = document.getElementById("inputDisp");

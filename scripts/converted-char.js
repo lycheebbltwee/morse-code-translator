@@ -1,15 +1,7 @@
 const convertCharacter = (string, arr1, arr2) => {
-    // Error catching
-    const notEnoughParamsError = new Error(
-        "This function needs three arguments",
-    );
-    const incorrectParamTypesError = new Error(
-        "This function needs one string and two arrays",
-    );
-
     // If an argument is not defined
     if (!string || !arr1 || !arr2) {
-        throw notEnoughParamsError;
+        throw new Error("This function needs three arguments");
     }
 
     // If an argument is not the right type
@@ -18,7 +10,7 @@ const convertCharacter = (string, arr1, arr2) => {
         typeof arr1 !== "object" &&
         arr2 !== "object"
     ) {
-        throw incorrectParamTypesError;
+        throw new Error("This function needs one string and two arrays");
     }
 
     /* 

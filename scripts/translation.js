@@ -63,7 +63,7 @@ const alphabet = {
 @returns { string } translatedString - Returns the translated string
  */
 
-export const translateString = (string) => {
+const translateString = (string) => {
     // Place Object keys into an array
     const keys = Object.getOwnPropertyNames(alphabet);
     // Place Object values into an array
@@ -77,3 +77,5 @@ export const translateString = (string) => {
 
     return convertCharacter(string, keys, values);
 };
+
+export default translateString;
