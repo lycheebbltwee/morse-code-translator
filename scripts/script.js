@@ -12,7 +12,7 @@ const emptyDisp = () => {
 
 // Event Listeners
 textInput.addEventListener("input", () => {
-    if (textInput.value == null || textInput == undefined) {
+    if (!textInput) {
         return emptyDisp();
     } else {
         const translationText = translateString(textInput.value);

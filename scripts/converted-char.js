@@ -1,7 +1,15 @@
+import * as errors from "./error-variables.js";
+
+const {
+    notEnoughParamsError,
+    incorrectParamTypesError,
+    arrsNotSameLengthError,
+} = errors;
+
 const convertCharacter = (string, arr1, arr2) => {
     // If an argument is not defined
     if (!string || !arr1 || !arr2) {
-        throw new Error("This function needs three arguments");
+        throw notEnoughParamsError;
     }
 
     // If an argument is not the right type
@@ -10,7 +18,12 @@ const convertCharacter = (string, arr1, arr2) => {
         typeof arr1 !== "object" &&
         arr2 !== "object"
     ) {
-        throw new Error("This function needs one string and two arrays");
+        throw incorrectParamTypesError;
+    }
+
+    // If the length of the character arrays are not the same
+    if (arr1.length !== arr2.length) {
+        throw arrsNotSameLengthError;
     }
 
     /* 

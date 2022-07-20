@@ -1,4 +1,7 @@
 import convertCharacter from "./converted-char.js";
+import * as errors from "./error-variables.js";
+
+const { incorrectParamTypesError } = errors;
 
 // A to Z in Morse Code
 const alphabet = {
@@ -73,6 +76,11 @@ const translateString = (string) => {
     // If the string is empty or contains a number
     if (!string) {
         return "";
+    }
+
+    // If a non-string is inputted
+    if (typeof string !== "string") {
+        return incorrectParamTypesError;
     }
 
     return convertCharacter(string, keys, values);

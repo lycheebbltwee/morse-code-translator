@@ -21,3 +21,7 @@ The abstraction looked like:
 I created three scripts to keep my code modular and further separate the roles of the functions. Whilst working on my translation script, I made frequent use of console.log to make sure I was getting the correct result from my expressions.
 
 This project was helpful in consolidating my knowledge and skills using Objects and iterators within JavaScript.
+
+## Refactor
+
+Upon having a code review, it was suggested to refactor my JavaScript and further break down the functions. This was a good challenge for me, especially to think about how I could use one function to translate both ways. I decided to use ternary operators to achieve this goal. I also included unit testing for my functions to make sure that it executed the way it was supposed to. However I do think that if I did Test-Driven Development and started with writing tests, the tests would be less biased.
