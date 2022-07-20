@@ -1,3 +1,8 @@
+import convertCharacter from "./converted-char.js";
+import * as errors from "./error-variables.js";
+
+const { incorrectParamTypesError } = errors;
+
 // A to Z in Morse Code
 const alphabet = {
     A: ".-",
@@ -61,7 +66,7 @@ const alphabet = {
 @returns { string } translatedString - Returns the translated string
  */
 
-export const translateString = (string) => {
+const translateString = (string) => {
     // Place Object keys into an array
     const keys = Object.getOwnPropertyNames(alphabet);
     // Place Object values into an array
@@ -69,30 +74,16 @@ export const translateString = (string) => {
 
     // Error catching:
     // If the string is empty or contains a number
-    if (string === null || string === undefined || string === "") {
+    if (!string) {
         return "";
     }
 
-    // Split the string, based on whether the string is in English or in Morse
-    if (/^[\.\-]/.test(string)) {
-        const morseArr = string.split(" ");
-
-        // Create a new array with the translated character
-        const translatedToEnglish = morseArr.map((char) => {
-            return keys[values.indexOf(char)].toLowerCase();
-        });
-
-        // Join translated characters
-        return translatedToEnglish.join("");
-    } else if (/^[a-z\d\W]/gi.test(string)) {
-        const englishArr = string.split("");
-
-        // Create a new array with the translated character
-        const translatedToMorse = englishArr.map((char) => {
-            return values[keys.indexOf(char.toUpperCase())];
-        });
-
-        // Join translated characters
-        return translatedToMorse.join(" ");
+    // If a non-string is inputted
+    if (typeof string !== "string") {
+        return incorrectParamTypesError;
     }
+
+    return convertCharacter(string, keys, values);
 };
+
+export default translateString;
