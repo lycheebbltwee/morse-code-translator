@@ -2,6 +2,8 @@
 
 A project to create a translator, using HTML, CSS, and JavaScript, between Morse code and English.
 
+<img src="./assets/development-project-02.png" alt="May be a web-based translation tool" height=400>
+
 ## Planning and Logic
 
 Upon starting this project, I decided to set up the overall design of the page first just to remove a process from my thoughts. I then hand-wrote a few drafts of the logic I would need to achieve to make this work.
